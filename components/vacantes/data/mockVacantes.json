@@ -1,0 +1,189 @@
+[
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440001",
+    "titulo": "Desarrollador/a Frontend Jr.",
+    "resumen": "Desarrollo de interfaces con React y TypeScript. Jornada 9–15 h. $12,000–$15,000 MXN.",
+    "enlace_aplicar": "https://talented.mx/ofertas/frontend-jr",
+    "estado_mx": "Michoacán",
+    "ciudad": "Morelia",
+    "modalidad": "hibrido",
+    "tipo": "primer_empleo",
+    "carreras": ["Ingeniería en Sistemas Computacionales", "Informática"],
+    "estado": "vigente",
+    "publicada_en": "2026-11-20T14:00:00Z",
+    "vence_en": "2026-12-20T23:59:59Z",
+    "empresa": {
+      "id": "emp-001",
+      "nombre": "Nova Software"
+    },
+    "fuente": {
+      "id": "fnt-001",
+      "nombre": "Talented",
+      "tipo": "directa"
+    },
+    "coincidencia": {
+      "id": "coin-001",
+      "porcentaje": 86,
+      "explicacion": "Cumples con las tecnologías principales de frontend y trabajo colaborativo.",
+      "version_algoritmo": "v1.0.0-mvp",
+      "calculada_en": "2026-11-24T18:00:00Z",
+      "habilidades_coincidentes": [
+        {
+          "habilidad_id": "hab-001",
+          "nombre": "React",
+          "categoria": "herramienta",
+          "evidencia": "Lo usaste en tu residencia."
+        },
+        {
+          "habilidad_id": "hab-002",
+          "nombre": "JavaScript",
+          "categoria": "tecnica",
+          "evidencia": "Aparece en tu experiencia."
+        },
+        {
+          "habilidad_id": "hab-003",
+          "nombre": "Trabajo en equipo",
+          "categoria": "blanda",
+          "evidencia": "Lo mencionas en tu hackatón."
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-001",
+          "habilidad_id": "hab-004",
+          "nombre": "TypeScript",
+          "categoria": "tecnica",
+          "obligatoria": true,
+          "motivo_vacante": "Pide tipado estático.",
+          "estado": "abierto",
+          "marcado_incorrecto": false,
+          "evidencia": null
+        },
+        {
+          "id": "gap-002",
+          "habilidad_id": "hab-005",
+          "nombre": "Pruebas unitarias",
+          "categoria": "tecnica",
+          "obligatoria": false,
+          "motivo_vacante": "Menciona Jest o Testing Library.",
+          "estado": "abierto",
+          "marcado_incorrecto": false,
+          "evidencia": null
+        },
+        {
+          "id": "gap-003",
+          "habilidad_id": "hab-006",
+          "nombre": "Git en equipo",
+          "categoria": "herramienta",
+          "obligatoria": true,
+          "motivo_vacante": "Pide ramas y pull requests.",
+          "estado": "abierto",
+          "marcado_incorrecto": false,
+          "evidencia": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440002",
+    "titulo": "Analista de Datos",
+    "resumen": "Limpieza de datos, construcción de tableros y consultas SQL para área comercial.",
+    "enlace_aplicar": "https://linkedin.com/jobs/view/123456",
+    "estado_mx": "Remoto",
+    "ciudad": "Remoto",
+    "modalidad": "remoto",
+    "tipo": "residencia",
+    "carreras": ["Ingeniería en Sistemas Computacionales", "Ciencia de Datos"],
+    "estado": "vigente",
+    "publicada_en": "2026-11-18T10:00:00Z",
+    "vence_en": "2026-12-18T23:59:59Z",
+    "empresa": {
+      "id": "emp-002",
+      "nombre": "Datacorp MX"
+    },
+    "fuente": {
+      "id": "fnt-002",
+      "nombre": "LinkedIn",
+      "tipo": "enlace"
+    },
+    "coincidencia": {
+      "id": "coin-002",
+      "porcentaje": 72,
+      "explicacion": "Tienes buena base en SQL y Python, pero faltan herramientas de BI.",
+      "version_algoritmo": "v1.0.0-mvp",
+      "calculada_en": "2026-11-24T18:00:00Z",
+      "habilidades_coincidentes": [
+        {
+          "habilidad_id": "hab-007",
+          "nombre": "SQL",
+          "categoria": "tecnica",
+          "evidencia": "Aparece en tus proyectos escolares."
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-004",
+          "habilidad_id": "hab-008",
+          "nombre": "Power BI",
+          "categoria": "herramienta",
+          "obligatoria": true,
+          "motivo_vacante": "Pide creación de dashboards interactivos.",
+          "estado": "abierto",
+          "marcado_incorrecto": false,
+          "evidencia": null
+        }
+      ]
+    }
+  },
+  {
+    "id": "550e8400-e29b-41d4-a716-446655440003",
+    "titulo": "Soporte Técnico TI",
+    "resumen": "Mantenimiento preventivo y correctivo de equipos, redes locales y atención a usuarios.",
+    "enlace_aplicar": "https://mx.indeed.com/viewjob?jk=7890",
+    "estado_mx": "Michoacán",
+    "ciudad": "Uruapan",
+    "modalidad": "presencial",
+    "tipo": "primer_empleo",
+    "carreras": ["Ingeniería en Sistemas Computacionales", "Redes"],
+    "estado": "vigente",
+    "publicada_en": "2026-11-15T09:00:00Z",
+    "vence_en": "2026-12-15T23:59:59Z",
+    "empresa": {
+      "id": "emp-003",
+      "nombre": "Redes del Bajío"
+    },
+    "fuente": {
+      "id": "fnt-003",
+      "nombre": "Indeed",
+      "tipo": "enlace"
+    },
+    "coincidencia": {
+      "id": "coin-003",
+      "porcentaje": 48,
+      "explicacion": "Coincides en fundamentos de hardware, pero requiere experiencia en redes empresariales.",
+      "version_algoritmo": "v1.0.0-mvp",
+      "calculada_en": "2026-11-24T18:00:00Z",
+      "habilidades_coincidentes": [
+        {
+          "habilidad_id": "hab-009",
+          "nombre": "Soporte TI",
+          "categoria": "tecnica",
+          "evidencia": "Aparece en tu experiencia previa."
+        }
+      ],
+      "gaps": [
+        {
+          "id": "gap-005",
+          "habilidad_id": "hab-010",
+          "nombre": "Cisco CCNA",
+          "categoria": "tecnica",
+          "obligatoria": false,
+          "motivo_vacante": "Deseable configuración de switches y VLANs.",
+          "estado": "abierto",
+          "marcado_incorrecto": false,
+          "evidencia": null
+        }
+      ]
+    }
+  }
+]
