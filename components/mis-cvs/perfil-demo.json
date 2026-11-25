@@ -1,0 +1,19 @@
+{
+  "nombre": "María Fernanda López",
+  "ciudad": "Morelia",
+  "correo": "maria@correo.com",
+  "empresa": "Nova Software",
+  "puesto": "Residencia · Desarrollador web",
+  "descripcion": "Interfaces en React para portal escolar. Trabajo con 4 personas.",
+  "educacion": "Instituto Tecnológico de Morelia · 2022–2026",
+  "habilidades": [
+    "React",
+    "JavaScript",
+    "Git",
+    "SQL"
+  ],
+  "insignias": [
+    "React · 90 %",
+    "TypeScript · 88 %"
+  ]
+}
