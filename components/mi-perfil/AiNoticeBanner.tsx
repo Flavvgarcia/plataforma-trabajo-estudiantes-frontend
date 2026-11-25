@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface AiNoticeBannerProps {
   onReportError: (details: string) => Promise<void>;
@@ -11,6 +11,17 @@ export function AiNoticeBanner({ onReportError }: AiNoticeBannerProps) {
   const [details, setDetails] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [reported, setReported] = useState(false);
+
+  useEffect(() => {
+    if (!isModalOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsModalOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isModalOpen]);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();

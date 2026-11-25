@@ -26,7 +26,7 @@ export function AiAnalysisCard({ progress, fileName }: AiAnalysisCardProps) {
         className="mt-3 h-2 w-full rounded-full bg-[#EEEDFC] overflow-hidden"
       >
         <div
-          className="h-full bg-[#3730A3] rounded-full transition-all duration-300"
+          className="h-full bg-[#3730A3] rounded-full transition-all duration-500 ease-out"
           style={{ width: `${clamped}%` }}
         />
       </div>

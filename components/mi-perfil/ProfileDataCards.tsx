@@ -26,9 +26,11 @@ export function ProfileDataCards({
 }: ProfileDataCardsProps) {
   const [editingEducation, setEditingEducation] = useState(false);
   const [eduDraft, setEduDraft] = useState<EducationInfo>(education);
+  const [eduError, setEduError] = useState<string | null>(null);
 
   const [editingExperience, setEditingExperience] = useState(false);
   const [expDraft, setExpDraft] = useState<ExperienceInfo>(experience);
+  const [expError, setExpError] = useState<string | null>(null);
 
   const [addingSkill, setAddingSkill] = useState(false);
   const [skillInput, setSkillInput] = useState("");
@@ -39,30 +41,64 @@ export function ProfileDataCards({
 
   const openEducationEditor = () => {
     setEduDraft(education);
+    setEduError(null);
     setEditingEducation(true);
   };
 
   const saveEducation = (event: React.FormEvent) => {
     event.preventDefault();
+    const inst = eduDraft.institution.trim();
+    const prog = eduDraft.program.trim();
+    const sem = eduDraft.semester.trim();
+    if (!inst) {
+      setEduError("Por favor ingresa la institución educativa.");
+      return;
+    }
+    if (!prog) {
+      setEduError("Por favor ingresa la carrera o programa.");
+      return;
+    }
+    if (!sem) {
+      setEduError("Por favor ingresa el semestre.");
+      return;
+    }
+    setEduError(null);
     onUpdateEducation({
-      institution: eduDraft.institution.trim() || education.institution,
-      program: eduDraft.program.trim() || education.program,
-      semester: eduDraft.semester.trim() || education.semester,
+      institution: inst,
+      program: prog,
+      semester: sem,
     });
     setEditingEducation(false);
   };
 
   const openExperienceEditor = () => {
     setExpDraft(experience);
+    setExpError(null);
     setEditingExperience(true);
   };
 
   const saveExperience = (event: React.FormEvent) => {
     event.preventDefault();
+    const title = expDraft.title.trim();
+    const period = expDraft.period.trim();
+    const location = expDraft.location.trim();
+    if (!title) {
+      setExpError("Por favor ingresa el puesto o experiencia.");
+      return;
+    }
+    if (!period) {
+      setExpError("Por favor ingresa el periodo (ej. Ene – Jun 2026).");
+      return;
+    }
+    if (!location) {
+      setExpError("Por favor ingresa la ubicación (ej. Morelia).");
+      return;
+    }
+    setExpError(null);
     onUpdateExperience({
-      title: expDraft.title.trim() || experience.title,
-      period: expDraft.period.trim() || experience.period,
-      location: expDraft.location.trim() || experience.location,
+      title,
+      period,
+      location,
     });
     setEditingExperience(false);
   };
@@ -155,6 +191,11 @@ export function ProfileDataCards({
                 className="w-full rounded-xl border border-[#E4E3F1] px-3 py-2 text-[14px] text-[#12122B] focus:outline-none focus:border-[#3730A3]"
               />
             </div>
+            {eduError ? (
+              <p role="alert" className="text-[12px] font-medium text-[#B42318]">
+                {eduError}
+              </p>
+            ) : null}
             <div className="flex justify-end gap-2 pt-1">
               <button
                 type="button"
@@ -234,6 +275,11 @@ export function ProfileDataCards({
                 className="w-full rounded-xl border border-[#E4E3F1] px-3 py-2 text-[14px] text-[#12122B] focus:outline-none focus:border-[#3730A3]"
               />
             </div>
+            {expError ? (
+              <p role="alert" className="text-[12px] font-medium text-[#B42318]">
+                {expError}
+              </p>
+            ) : null}
             <div className="flex justify-end gap-2 pt-1">
               <button
                 type="button"

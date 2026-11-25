@@ -6,6 +6,7 @@ interface CvDropzoneProps {
   onFileSelected: (file: File) => void;
   selectedFileName?: string;
   isUploading?: boolean;
+  onRemoveFile?: () => void;
 }
 
 const MAX_BYTES = 5 * 1024 * 1024;
@@ -27,6 +28,7 @@ export function CvDropzone({
   onFileSelected,
   selectedFileName,
   isUploading = false,
+  onRemoveFile,
 }: CvDropzoneProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -92,9 +94,21 @@ export function CvDropzone({
       </button>
 
       {selectedFileName ? (
-        <p className="mt-3 text-[12px] font-bold text-[#2E2785]">
-          Archivo cargado: {selectedFileName}
-        </p>
+        <div className="mt-3.5 inline-flex items-center gap-2 rounded-xl bg-[#EEEDFC] px-3.5 py-1.5 text-[13px] font-medium text-[#2E2785]">
+          <span className="truncate max-w-[220px]">
+            Archivo cargado: <strong>{selectedFileName}</strong>
+          </span>
+          {onRemoveFile && !isUploading ? (
+            <button
+              type="button"
+              onClick={onRemoveFile}
+              className="text-[#4A4A68] hover:text-[#B42318] text-[12px] font-bold underline cursor-pointer ml-1"
+              aria-label="Quitar archivo de CV"
+            >
+              Quitar
+            </button>
+          ) : null}
+        </div>
       ) : null}
 
       {error ? (

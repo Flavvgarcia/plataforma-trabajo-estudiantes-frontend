@@ -46,14 +46,18 @@ export function MiPerfilView() {
   const handleCvSelected = async (file: File) => {
     setIsUploading(true);
     setSaveMessage(null);
-    setAnalysisProgress(35);
+    setAnalysisProgress(15);
 
-    const progressTimer = setInterval(() => {
-      setAnalysisProgress((prev) => (prev < 85 ? prev + 15 : prev));
-    }, 250);
+    // Animación escalonada fluida para feedback visual realista
+    await new Promise((resolve) => setTimeout(resolve, 300));
+    setAnalysisProgress(45);
+    await new Promise((resolve) => setTimeout(resolve, 400));
+    setAnalysisProgress(75);
+    await new Promise((resolve) => setTimeout(resolve, 400));
+    setAnalysisProgress(90);
 
     const result = await uploadStudentCv(file);
-    clearInterval(progressTimer);
+    await new Promise((resolve) => setTimeout(resolve, 300));
 
     setAnalysisProgress(100);
     setIsUploading(false);
@@ -65,6 +69,16 @@ export function MiPerfilView() {
       cvFileName: result.fileName,
     }));
     setIsDirty(true);
+  };
+
+  const handleRemoveCv = () => {
+    setProfile((prev) => ({
+      ...prev,
+      cvFileName: undefined,
+    }));
+    setAnalysisProgress(65);
+    setIsDirty(true);
+    setSaveMessage(null);
   };
 
   const handleSaveProfile = async () => {
@@ -176,6 +190,7 @@ export function MiPerfilView() {
                 onFileSelected={handleCvSelected}
                 selectedFileName={profile.cvFileName}
                 isUploading={isUploading}
+                onRemoveFile={handleRemoveCv}
               />
             </div>
 
