@@ -32,7 +32,7 @@ export function CircularMatchBadge({
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="#E5E7EB"
+          stroke="#E4E3F1"
           strokeWidth={strokeWidth}
         />
         <circle
@@ -40,14 +40,14 @@ export function CircularMatchBadge({
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="#3B2DB2"
+          stroke="#3730A3"
           strokeWidth={strokeWidth}
           strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
         />
       </svg>
-      <span className="absolute text-xs font-bold tracking-tight text-slate-900">
+      <span className="absolute text-xs font-bold tracking-tight text-[#12122B]">
         {clamped}%
       </span>
     </div>
