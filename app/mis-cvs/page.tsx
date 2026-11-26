@@ -1,1 +1,7 @@
-export default function MisCvsPage() { return <div>Mis CVs</div>; }
+import AdaptedResume from "@/components/mis-cvs/AdaptedResume";
+
+export const metadata = { title: "CV adaptado · Talented" };
+
+export default function MisCvsPage() {
+  return <AdaptedResume />;
+}
