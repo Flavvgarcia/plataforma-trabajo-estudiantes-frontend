@@ -104,10 +104,16 @@ export function VacantesListClient({
   }, [initialVacantes, query, filters]);
 
   return (
-    <div className="min-h-screen bg-[#F8F9FC] text-slate-900">
+    <div className="min-h-screen bg-[#F7F6FC] text-[#12122B]">
       <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
         <header className="mb-6">
-          <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          <h1
+            className="text-2xl font-bold tracking-tight text-[#12122B] sm:text-3xl"
+            style={{
+              fontFamily:
+                'var(--font-talented-grotesk), "Space Grotesk", sans-serif',
+            }}
+          >
             Vacantes
           </h1>
         </header>
@@ -137,7 +143,7 @@ export function VacantesListClient({
                   autoCapitalize="none"
                   spellCheck={false}
                   enterKeyHint="search"
-                  className="min-h-12 w-full rounded-full border border-slate-300 bg-white px-5 text-base text-slate-900 shadow-xs placeholder:text-slate-400 focus-visible:border-[#3B2DB2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+                  className="min-h-12 w-full rounded-full border border-[#E4E3F1] bg-white px-5 text-base text-[#12122B] placeholder:text-[#6B6A8A] focus-visible:border-[#3730A3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
                 />
               </div>
 
@@ -161,17 +167,17 @@ export function VacantesListClient({
                   ))}
                 </div>
               ) : (
-                <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-xs">
-                  <p className="text-base font-semibold text-slate-900">
+                <div className="rounded-2xl border border-[#E4E3F1] bg-white p-8 text-center">
+                  <p className="text-base font-semibold text-[#12122B]">
                     No encontramos vacantes con esos filtros
                   </p>
-                  <p className="mt-1 text-sm text-slate-600">
+                  <p className="mt-1 text-sm text-[#4A4A68]">
                     Prueba limpiando los filtros o buscando otra palabra clave.
                   </p>
                   <button
                     type="button"
                     onClick={resetAll}
-                    className="mt-4 inline-flex min-h-11 items-center justify-center rounded-xl bg-[#3B2DB2] px-5 text-sm font-semibold text-white hover:bg-[#31249A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+                    className="mt-4 inline-flex min-h-11 items-center justify-center rounded-xl bg-[#3730A3] px-5 text-sm font-semibold text-white hover:bg-[#2E2785] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
                   >
                     Limpiar filtros
                   </button>

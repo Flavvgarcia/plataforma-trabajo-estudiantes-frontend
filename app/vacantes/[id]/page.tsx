@@ -27,14 +27,14 @@ async function VacanteDetailContent({
 
 function VacanteDetailFallback() {
   return (
-    <div className="min-h-screen bg-[#F8F9FC] px-4 py-8 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#F7F6FC] px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl animate-pulse space-y-6">
-        <div className="h-8 w-64 rounded-lg bg-slate-200" />
-        <div className="h-40 rounded-2xl bg-white p-5 shadow-xs" />
+        <div className="h-8 w-64 rounded-lg bg-[#E4E3F1]" />
+        <div className="h-40 rounded-2xl border border-[#E4E3F1] bg-white p-5" />
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-          <div className="h-24 rounded-xl bg-slate-200/70" />
-          <div className="h-24 rounded-xl bg-slate-200/70" />
-          <div className="h-24 rounded-xl bg-slate-200/70" />
+          <div className="h-24 rounded-xl bg-[#E4E3F1]/70" />
+          <div className="h-24 rounded-xl bg-[#E4E3F1]/70" />
+          <div className="h-24 rounded-xl bg-[#E4E3F1]/70" />
         </div>
       </div>
     </div>

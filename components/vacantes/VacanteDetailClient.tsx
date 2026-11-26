@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { CircularMatchBadge } from './CircularMatchBadge';
 import { GapSection } from './GapSection';
 import { ReportarGapDrawer } from './ReportarGapDrawer';
@@ -54,21 +55,25 @@ export function VacanteDetailClient({ vacante }: VacanteDetailClientProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F9FC] text-slate-900">
+    <div className="min-h-screen bg-[#F7F6FC] text-[#12122B]">
       <main className="mx-auto w-full max-w-6xl px-4 py-5 sm:px-6 lg:px-8 lg:py-8">
         <header className="mb-5 flex items-center gap-3 lg:mb-6 lg:flex-col lg:items-start lg:gap-2">
           <Link
             href="/vacantes"
             aria-label="Volver a vacantes"
-            className="inline-flex min-h-10 items-center gap-1.5 rounded-lg px-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-200/60 hover:text-[#3B2DB2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2] lg:px-0 lg:hover:bg-transparent"
+            className="inline-flex min-h-10 items-center gap-1.5 rounded-lg px-2 text-sm font-semibold text-[#4A4A68] transition hover:bg-[#EEEDFC] hover:text-[#3730A3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3] lg:px-0 lg:hover:bg-transparent"
           >
-            <span aria-hidden="true" className="text-lg leading-none">
-              ←
-            </span>
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             <span className="hidden lg:inline">Volver a vacantes</span>
           </Link>
 
-          <h1 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl lg:text-3xl">
+          <h1
+            className="text-xl font-bold tracking-tight text-[#12122B] sm:text-2xl lg:text-3xl"
+            style={{
+              fontFamily:
+                'var(--font-talented-grotesk), "Space Grotesk", sans-serif',
+            }}
+          >
             <span className="lg:hidden">Detalle de la vacante</span>
             <span className="hidden lg:inline">
               Detalle de la vacante y gaps
@@ -80,13 +85,13 @@ export function VacanteDetailClient({ vacante }: VacanteDetailClientProps) {
           <div
             role="status"
             aria-live="polite"
-            className="mb-5 flex items-center justify-between gap-3 rounded-xl border border-emerald-300 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"
+            className="mb-5 flex items-center justify-between gap-3 rounded-xl border border-[#52B788] bg-[#EFFAF3] px-4 py-3 text-sm text-[#12122B]"
           >
             <span>{statusMessage}</span>
             <button
               type="button"
               onClick={() => setStatusMessage(null)}
-              className="shrink-0 text-xs font-semibold text-emerald-800 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+              className="shrink-0 text-xs font-semibold text-[#15803D] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#15803D]"
             >
               Cerrar
             </button>
@@ -97,14 +102,20 @@ export function VacanteDetailClient({ vacante }: VacanteDetailClientProps) {
           <div className="space-y-6">
             <section
               aria-label="Resumen de la vacante"
-              className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs"
+              className="rounded-2xl border border-[#E4E3F1] bg-white p-5"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="min-w-0 flex-1">
-                  <h2 className="text-lg font-bold leading-snug text-slate-900 sm:text-xl">
+                  <h2
+                    className="text-lg font-bold leading-snug text-[#12122B] sm:text-xl"
+                    style={{
+                      fontFamily:
+                        'var(--font-talented-grotesk), "Space Grotesk", sans-serif',
+                    }}
+                  >
                     {vacante.titulo}
                   </h2>
-                  <p className="mt-1 text-sm text-slate-600">
+                  <p className="mt-1 text-sm text-[#4A4A68]">
                     {vacante.empresa.nombre} · {ubicacionTexto} ·{' '}
                     {MODALIDAD_LABELS[vacante.modalidad]}
                   </p>
@@ -115,7 +126,7 @@ export function VacanteDetailClient({ vacante }: VacanteDetailClientProps) {
                 />
               </div>
 
-              <p className="mt-3 text-sm leading-relaxed text-slate-700">
+              <p className="mt-3 text-sm leading-relaxed text-[#4A4A68]">
                 {vacante.resumen}
               </p>
 
@@ -124,10 +135,10 @@ export function VacanteDetailClient({ vacante }: VacanteDetailClientProps) {
                   href={vacante.enlace_aplicar}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 rounded text-sm font-semibold text-[#3B2DB2] underline-offset-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+                  className="inline-flex items-center gap-1 rounded text-sm font-semibold text-[#3730A3] underline-offset-2 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
                 >
                   <span>Ver oferta completa</span>
-                  <span aria-hidden="true">↗</span>
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                 </a>
               </div>
             </section>
@@ -145,14 +156,20 @@ export function VacanteDetailClient({ vacante }: VacanteDetailClientProps) {
             aria-label="Acciones de coincidencia"
             className="mt-6 space-y-4 lg:mt-0"
           >
-            <div className="hidden rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs lg:block">
-              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+            <div className="hidden rounded-2xl border border-[#E4E3F1] bg-white p-5 lg:block">
+              <p className="text-xs font-semibold uppercase tracking-wider text-[#6B6A8A]">
                 TU COINCIDENCIA
               </p>
-              <p className="mt-2 text-4xl font-extrabold tracking-tight text-[#3B2DB2]">
+              <p
+                className="mt-2 text-4xl font-extrabold tracking-tight text-[#3730A3]"
+                style={{
+                  fontFamily:
+                    'var(--font-talented-grotesk), "Space Grotesk", sans-serif',
+                }}
+              >
                 {vacante.coincidencia.porcentaje} %
               </p>
-              <p className="mt-2 text-xs leading-relaxed text-slate-600">
+              <p className="mt-2 text-xs leading-relaxed text-[#4A4A68]">
                 {openGapsCount > 0
                   ? `Cierra tus ${openGapsCount} ${
                       openGapsCount === 1 ? 'gap' : 'gaps'
@@ -163,20 +180,20 @@ export function VacanteDetailClient({ vacante }: VacanteDetailClientProps) {
               <div className="mt-4 space-y-2.5">
                 <Link
                   href="/mis-cursos"
-                  className="flex min-h-11 w-full items-center justify-center rounded-xl bg-[#3B2DB2] px-4 text-center text-sm font-semibold text-white transition hover:bg-[#31249A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+                  className="flex min-h-11 w-full items-center justify-center rounded-xl bg-[#3730A3] px-4 text-center text-sm font-semibold text-white transition hover:bg-[#2E2785] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
                 >
                   Tomar curso rápido con IA
                 </Link>
                 <Link
                   href="/mis-cvs"
-                  className="flex min-h-11 w-full items-center justify-center rounded-xl border border-[#3B2DB2] bg-white px-4 py-2 text-center text-sm font-semibold text-[#3B2DB2] transition hover:bg-[#EEF0FF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+                  className="flex min-h-11 w-full items-center justify-center rounded-xl border border-[#3730A3] bg-white px-4 py-2 text-center text-sm font-semibold text-[#3730A3] transition hover:bg-[#EEEDFC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
                 >
                   Generar CV adaptado para esta vacante
                 </Link>
               </div>
             </div>
 
-            <div className="rounded-xl border border-[#D99B52] bg-[#FEF6EB] p-4 text-xs leading-relaxed text-amber-950">
+            <div className="rounded-xl border border-[#D99B52] bg-[#FEF6EB] p-4 text-xs leading-relaxed text-[#12122B]">
               <strong className="font-bold">Generado por IA.</strong> Este
               análisis puede contener errores. Usa{' '}
               <span className="lg:hidden">«Reportar»</span>
@@ -189,13 +206,13 @@ export function VacanteDetailClient({ vacante }: VacanteDetailClientProps) {
             <div className="space-y-2.5 pt-2 lg:hidden">
               <Link
                 href="/mis-cursos"
-                className="flex min-h-12 w-full items-center justify-center rounded-xl bg-[#3B2DB2] px-4 text-center text-sm font-semibold text-white transition hover:bg-[#31249A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+                className="flex min-h-12 w-full items-center justify-center rounded-xl bg-[#3730A3] px-4 text-center text-sm font-semibold text-white transition hover:bg-[#2E2785] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
               >
                 Tomar curso rápido con IA
               </Link>
               <Link
                 href="/mis-cvs"
-                className="flex min-h-12 w-full items-center justify-center rounded-xl border border-[#3B2DB2] bg-white px-4 py-2 text-center text-sm font-semibold text-[#3B2DB2] transition hover:bg-[#EEF0FF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+                className="flex min-h-12 w-full items-center justify-center rounded-xl border border-[#3730A3] bg-white px-4 py-2 text-center text-sm font-semibold text-[#3730A3] transition hover:bg-[#EEEDFC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
               >
                 Generar CV adaptado para esta vacante
               </Link>

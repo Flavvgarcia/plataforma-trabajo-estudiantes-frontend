@@ -1,6 +1,7 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 import {
   MODALIDAD_LABELS,
   TIPO_VACANTE_LABELS,
@@ -51,15 +52,23 @@ export function DesktopVacanteFilters({
   return (
     <aside
       aria-label="Filtros de vacantes"
-      className="hidden rounded-2xl border border-slate-200/80 bg-white p-5 shadow-xs lg:block"
+      className="hidden rounded-2xl border border-[#E4E3F1] bg-white p-5 lg:block"
     >
       <div className="flex items-center justify-between gap-2">
-        <h2 className="text-base font-bold text-slate-900">Filtros</h2>
+        <h2
+          className="text-base font-bold text-[#12122B]"
+          style={{
+            fontFamily:
+              'var(--font-talented-grotesk), "Space Grotesk", sans-serif',
+          }}
+        >
+          Filtros
+        </h2>
         {hasActiveFilters && (
           <button
             type="button"
             onClick={onReset}
-            className="rounded text-xs font-semibold text-[#3B2DB2] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+            className="rounded text-xs font-semibold text-[#3730A3] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
           >
             Limpiar
           </button>
@@ -70,7 +79,7 @@ export function DesktopVacanteFilters({
         <div>
           <label
             htmlFor={ubicacionId}
-            className="block text-sm font-semibold text-slate-800"
+            className="block text-sm font-semibold text-[#12122B]"
           >
             Ubicación
           </label>
@@ -86,12 +95,12 @@ export function DesktopVacanteFilters({
             autoCorrect="off"
             spellCheck={false}
             enterKeyHint="search"
-            className="mt-1.5 min-h-11 w-full rounded-xl border border-slate-300 bg-white px-3.5 text-base text-slate-900 placeholder:text-slate-400 focus-visible:border-[#3B2DB2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+            className="mt-1.5 min-h-11 w-full rounded-xl border border-[#E4E3F1] bg-white px-3.5 text-base text-[#12122B] placeholder:text-[#6B6A8A] focus-visible:border-[#3730A3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
           />
         </div>
 
         <fieldset>
-          <legend className="text-sm font-semibold text-slate-800">
+          <legend className="text-sm font-semibold text-[#12122B]">
             Modalidad
           </legend>
           <div className="mt-2.5 space-y-2.5">
@@ -107,11 +116,11 @@ export function DesktopVacanteFilters({
                     value={mod}
                     checked={checked}
                     onChange={() => toggleModalidad(mod)}
-                    className="h-4.5 w-4.5 cursor-pointer rounded border-slate-400 accent-[#3B2DB2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+                    className="h-4.5 w-4.5 cursor-pointer rounded border-[#6B6A8A] accent-[#3730A3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
                   />
                   <label
                     htmlFor={id}
-                    className="cursor-pointer text-sm font-medium text-slate-800"
+                    className="cursor-pointer text-sm font-medium text-[#12122B]"
                   >
                     {MODALIDAD_LABELS[mod]}
                   </label>
@@ -122,7 +131,7 @@ export function DesktopVacanteFilters({
         </fieldset>
 
         <fieldset>
-          <legend className="text-sm font-semibold text-slate-800">Tipo</legend>
+          <legend className="text-sm font-semibold text-[#12122B]">Tipo</legend>
           <div className="mt-2.5 space-y-2.5">
             {TIPOS.map((item) => {
               const id = `${ubicacionId}-tipo-${item.value}`;
@@ -135,11 +144,11 @@ export function DesktopVacanteFilters({
                     value={item.value}
                     checked={filters.tipo === item.value}
                     onChange={() => onChange({ ...filters, tipo: item.value })}
-                    className="h-4.5 w-4.5 cursor-pointer border-slate-400 accent-[#3B2DB2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+                    className="h-4.5 w-4.5 cursor-pointer border-[#6B6A8A] accent-[#3730A3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
                   />
                   <label
                     htmlFor={id}
-                    className="cursor-pointer text-sm font-medium text-slate-800"
+                    className="cursor-pointer text-sm font-medium text-[#12122B]"
                   >
                     {item.label}
                   </label>
@@ -176,10 +185,10 @@ export function MobileVacanteFilters({
   };
 
   const pillClasses = (isActive: boolean, isOpen: boolean) =>
-    `inline-flex min-h-11 items-center gap-1.5 rounded-xl border px-3.5 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2] ${
+    `inline-flex min-h-11 items-center gap-1.5 rounded-xl border px-3.5 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3] ${
       isOpen || isActive
-        ? 'border-[#3B2DB2] bg-[#EEF0FF] text-[#3B2DB2]'
-        : 'border-[#3B2DB2]/70 bg-white text-[#3B2DB2]'
+        ? 'border-[#3730A3] bg-[#EEEDFC] text-[#3730A3]'
+        : 'border-[#3730A3]/70 bg-white text-[#3730A3]'
     }`;
 
   return (
@@ -196,9 +205,7 @@ export function MobileVacanteFilters({
           )}
         >
           <span>Ubicación</span>
-          <span aria-hidden="true" className="text-xs">
-            ▾
-          </span>
+          <ChevronDown className="h-4 w-4" aria-hidden="true" />
         </button>
 
         <button
@@ -217,9 +224,7 @@ export function MobileVacanteFilters({
               ? ` (${filters.modalidades.length})`
               : ''}
           </span>
-          <span aria-hidden="true" className="text-xs">
-            ▾
-          </span>
+          <ChevronDown className="h-4 w-4" aria-hidden="true" />
         </button>
 
         <button
@@ -234,9 +239,7 @@ export function MobileVacanteFilters({
               ? 'Tipo'
               : TIPO_VACANTE_LABELS[filters.tipo]}
           </span>
-          <span aria-hidden="true" className="text-xs">
-            ▾
-          </span>
+          <ChevronDown className="h-4 w-4" aria-hidden="true" />
         </button>
 
         {hasActiveFilters && (
@@ -246,7 +249,7 @@ export function MobileVacanteFilters({
               onReset();
               setOpenPanel(null);
             }}
-            className="ml-auto min-h-11 px-2 text-xs font-semibold text-[#3B2DB2] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+            className="ml-auto min-h-11 px-2 text-xs font-semibold text-[#3730A3] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
           >
             Limpiar
           </button>
@@ -256,13 +259,13 @@ export function MobileVacanteFilters({
       {openPanel && (
         <div
           id={panelId}
-          className="mt-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"
+          className="mt-3 rounded-2xl border border-[#E4E3F1] bg-white p-4 shadow-sm"
         >
           {openPanel === 'ubicacion' && (
             <div>
               <label
                 htmlFor={`${baseId}-mobile-ubicacion`}
-                className="block text-sm font-semibold text-slate-800"
+                className="block text-sm font-semibold text-[#12122B]"
               >
                 Ubicación
               </label>
@@ -278,14 +281,14 @@ export function MobileVacanteFilters({
                 autoCorrect="off"
                 spellCheck={false}
                 enterKeyHint="search"
-                className="mt-1.5 min-h-12 w-full rounded-xl border border-slate-300 bg-white px-3.5 text-base text-slate-900 placeholder:text-slate-400 focus-visible:border-[#3B2DB2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+                className="mt-1.5 min-h-12 w-full rounded-xl border border-[#E4E3F1] bg-white px-3.5 text-base text-[#12122B] placeholder:text-[#6B6A8A] focus-visible:border-[#3730A3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
               />
             </div>
           )}
 
           {openPanel === 'modalidad' && (
             <fieldset>
-              <legend className="text-sm font-semibold text-slate-800">
+              <legend className="text-sm font-semibold text-[#12122B]">
                 Modalidad
               </legend>
               <div className="mt-2.5 space-y-1">
@@ -303,11 +306,11 @@ export function MobileVacanteFilters({
                         value={mod}
                         checked={filters.modalidades.includes(mod)}
                         onChange={() => toggleModalidad(mod)}
-                        className="h-5 w-5 cursor-pointer rounded border-slate-400 accent-[#3B2DB2]"
+                        className="h-5 w-5 cursor-pointer rounded border-[#6B6A8A] accent-[#3730A3]"
                       />
                       <label
                         htmlFor={id}
-                        className="cursor-pointer text-sm font-medium text-slate-800"
+                        className="cursor-pointer text-sm font-medium text-[#12122B]"
                       >
                         {MODALIDAD_LABELS[mod]}
                       </label>
@@ -320,7 +323,7 @@ export function MobileVacanteFilters({
 
           {openPanel === 'tipo' && (
             <fieldset>
-              <legend className="text-sm font-semibold text-slate-800">
+              <legend className="text-sm font-semibold text-[#12122B]">
                 Tipo de vacante
               </legend>
               <div className="mt-2.5 space-y-1">
@@ -340,11 +343,11 @@ export function MobileVacanteFilters({
                         onChange={() =>
                           onChange({ ...filters, tipo: item.value })
                         }
-                        className="h-5 w-5 cursor-pointer border-slate-400 accent-[#3B2DB2]"
+                        className="h-5 w-5 cursor-pointer border-[#6B6A8A] accent-[#3730A3]"
                       />
                       <label
                         htmlFor={id}
-                        className="cursor-pointer text-sm font-medium text-slate-800"
+                        className="cursor-pointer text-sm font-medium text-[#12122B]"
                       >
                         {item.label}
                       </label>
@@ -359,7 +362,7 @@ export function MobileVacanteFilters({
             <button
               type="button"
               onClick={() => setOpenPanel(null)}
-              className="min-h-10 rounded-lg bg-[#3B2DB2] px-4 text-sm font-semibold text-white hover:bg-[#31249A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+              className="min-h-10 rounded-lg bg-[#3730A3] px-4 text-sm font-semibold text-white hover:bg-[#2E2785] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
             >
               Listo
             </button>

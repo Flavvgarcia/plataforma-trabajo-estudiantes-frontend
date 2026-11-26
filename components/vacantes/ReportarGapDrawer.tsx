@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useId, useRef, useState } from 'react';
+import { ArrowLeft } from 'lucide-react';
 import type {
   GapItem,
   MotivoReporteGap,
@@ -244,21 +245,26 @@ export function ReportarGapDrawer({
       aria-labelledby={titleId}
       onClose={handleDialogClose}
       {...({ closedby: 'any' } as Record<string, string>)}
-      className="m-0 h-dvh max-h-dvh w-full max-w-none flex-col bg-white p-0 text-slate-900 shadow-2xl open:flex lg:ml-auto lg:mr-0 lg:w-full lg:max-w-[400px] [&:modal]:overscroll-contain backdrop:overflow-hidden backdrop:bg-slate-900/45 backdrop:overscroll-contain"
+      className="m-0 h-dvh max-h-dvh w-full max-w-none flex-col bg-white p-0 text-[#12122B] shadow-2xl open:flex lg:ml-auto lg:mr-0 lg:w-full lg:max-w-[400px] [&:modal]:overscroll-contain backdrop:overflow-hidden backdrop:bg-[#12122B]/45 backdrop:overscroll-contain"
     >
-      <div className="flex items-center gap-3 border-b border-slate-100 px-5 py-4 lg:border-b-0 lg:pb-1 lg:pt-6">
+      <div className="flex items-center gap-3 border-b border-[#E4E3F1] px-5 py-4 lg:border-b-0 lg:pb-1 lg:pt-6">
         <button
           type="button"
           onClick={() => dialogRef.current?.close()}
           aria-label="Cerrar reporte"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-700 hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2] lg:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-full text-[#4A4A68] hover:bg-[#F7F6FC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3] lg:hidden"
         >
-          <span aria-hidden="true" className="text-lg">
-            ←
-          </span>
+          <ArrowLeft className="h-5 w-5" aria-hidden="true" />
         </button>
 
-        <h1 id={titleId} className="text-lg font-bold text-slate-900">
+        <h1
+          id={titleId}
+          className="text-lg font-bold text-[#12122B]"
+          style={{
+            fontFamily:
+              'var(--font-talented-grotesk), "Space Grotesk", sans-serif',
+          }}
+        >
           <span className="lg:hidden">Reportar gap</span>
           <span className="hidden lg:inline">Reportar / Aportar evidencia</span>
         </h1>
@@ -269,7 +275,7 @@ export function ReportarGapDrawer({
         noValidate
         className="flex flex-1 flex-col overflow-y-auto px-5 pb-6 pt-3 lg:pt-1"
       >
-        <p className="text-xs leading-relaxed text-slate-600 sm:text-sm">
+        <p className="text-xs leading-relaxed text-[#4A4A68] sm:text-sm">
           Dinos si algún gap no es correcto o agrega evidencia para que lo
           revisemos.
         </p>
@@ -278,7 +284,7 @@ export function ReportarGapDrawer({
           className="mt-4"
           aria-describedby={gapsError ? gapsErrorId : undefined}
         >
-          <legend className="text-sm font-bold text-slate-900">
+          <legend className="text-sm font-bold text-[#12122B]">
             ¿Sobre qué gap?
           </legend>
           <div className="mt-2 space-y-1.5">
@@ -296,11 +302,11 @@ export function ReportarGapDrawer({
                     checked={checked}
                     onChange={() => toggleGap(gap.id)}
                     aria-invalid={gapsError ? 'true' : undefined}
-                    className="h-5 w-5 cursor-pointer rounded border-slate-400 accent-[#3B2DB2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+                    className="h-5 w-5 cursor-pointer rounded border-[#6B6A8A] accent-[#3730A3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
                   />
                   <label
                     htmlFor={checkboxId}
-                    className="cursor-pointer text-sm text-slate-800"
+                    className="cursor-pointer text-sm text-[#12122B]"
                   >
                     {gap.nombre}
                   </label>
@@ -312,7 +318,7 @@ export function ReportarGapDrawer({
             <p
               id={gapsErrorId}
               role="alert"
-              className="mt-1.5 text-xs font-medium text-red-700"
+              className="mt-1.5 text-xs font-medium text-[#B42318]"
             >
               {gapsError}
             </p>
@@ -320,7 +326,7 @@ export function ReportarGapDrawer({
         </fieldset>
 
         <fieldset className="mt-4">
-          <legend className="text-sm font-bold text-slate-900">
+          <legend className="text-sm font-bold text-[#12122B]">
             ¿Qué pasó?
           </legend>
           <div className="mt-2 space-y-1.5">
@@ -338,11 +344,11 @@ export function ReportarGapDrawer({
                     value={item.value}
                     checked={motivo === item.value}
                     onChange={() => setMotivo(item.value)}
-                    className="h-4.5 w-4.5 cursor-pointer border-slate-400 accent-[#3B2DB2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+                    className="h-4.5 w-4.5 cursor-pointer border-[#6B6A8A] accent-[#3730A3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
                   />
                   <label
                     htmlFor={radioId}
-                    className="cursor-pointer text-sm text-slate-800"
+                    className="cursor-pointer text-sm text-[#12122B]"
                   >
                     {item.label}
                   </label>
@@ -355,7 +361,7 @@ export function ReportarGapDrawer({
         <div className="mt-4">
           <label
             htmlFor={urlId}
-            className="block text-sm font-bold text-slate-900"
+            className="block text-sm font-bold text-[#12122B]"
           >
             Enlace a tu evidencia (opcional)
           </label>
@@ -379,13 +385,13 @@ export function ReportarGapDrawer({
             enterKeyHint="next"
             aria-invalid={urlError ? 'true' : undefined}
             aria-describedby={urlError ? urlErrorId : undefined}
-            className="mt-1.5 min-h-12 w-full rounded-xl border border-slate-300 bg-white px-3.5 text-base text-slate-900 placeholder:text-slate-400 focus-visible:border-[#3B2DB2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+            className="mt-1.5 min-h-12 w-full rounded-xl border border-[#E4E3F1] bg-white px-3.5 text-base text-[#12122B] placeholder:text-[#6B6A8A] focus-visible:border-[#3730A3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
           />
           {urlError && (
             <p
               id={urlErrorId}
               role="alert"
-              className="mt-1 text-xs font-medium text-red-700"
+              className="mt-1 text-xs font-medium text-[#B42318]"
             >
               {urlError}
             </p>
@@ -406,19 +412,19 @@ export function ReportarGapDrawer({
             />
             <label
               htmlFor={fileId}
-              className="flex min-h-20 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-[#3B2DB2]/70 bg-white px-4 py-3 text-center transition hover:bg-[#F6F7FF] peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-[#3B2DB2]"
+              className="flex min-h-20 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-[#3730A3]/70 bg-white px-4 py-3 text-center transition hover:bg-[#F7F6FC] peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-[#3730A3]"
             >
-              <span className="text-sm font-bold text-slate-900">
+              <span className="text-sm font-bold text-[#12122B]">
                 Adjuntar archivo
               </span>
-              <span className="mt-0.5 text-xs text-slate-600">
+              <span className="mt-0.5 text-xs text-[#4A4A68]">
                 {archivo ? archivo.name : 'PDF o imagen · máx. 5 MB'}
               </span>
             </label>
           </div>
 
           {archivo && (
-            <div className="mt-1.5 flex items-center justify-between text-xs text-slate-600">
+            <div className="mt-1.5 flex items-center justify-between text-xs text-[#4A4A68]">
               <span className="truncate">{archivo.name}</span>
               <button
                 type="button"
@@ -427,7 +433,7 @@ export function ReportarGapDrawer({
                   setFileError(null);
                   if (fileInputRef.current) fileInputRef.current.value = '';
                 }}
-                className="ml-2 shrink-0 font-semibold text-[#3B2DB2] hover:underline"
+                className="ml-2 shrink-0 font-semibold text-[#3730A3] hover:underline"
               >
                 Quitar
               </button>
@@ -438,7 +444,7 @@ export function ReportarGapDrawer({
             <p
               id={fileErrorId}
               role="alert"
-              className="mt-1 text-xs font-medium text-red-700"
+              className="mt-1 text-xs font-medium text-[#B42318]"
             >
               {fileError}
             </p>
@@ -448,7 +454,7 @@ export function ReportarGapDrawer({
         <div className="mt-4">
           <label
             htmlFor={commentId}
-            className="block text-sm font-bold text-slate-900"
+            className="block text-sm font-bold text-[#12122B]"
           >
             Comentario
           </label>
@@ -459,27 +465,27 @@ export function ReportarGapDrawer({
             value={comentario}
             onChange={(e) => setComentario(e.target.value)}
             placeholder="Explica brevemente qué debería cambiar"
-            className="mt-1.5 w-full rounded-xl border border-slate-300 bg-white p-3.5 text-base text-slate-900 placeholder:text-slate-400 focus-visible:border-[#3B2DB2] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+            className="mt-1.5 w-full rounded-xl border border-[#E4E3F1] bg-white p-3.5 text-base text-[#12122B] placeholder:text-[#6B6A8A] focus-visible:border-[#3730A3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
           />
         </div>
 
         <div className="mt-5 space-y-2.5">
           <button
             type="submit"
-            className="flex min-h-12 w-full items-center justify-center rounded-xl bg-[#3B2DB2] px-4 text-sm font-semibold text-white transition hover:bg-[#31249A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+            className="flex min-h-12 w-full items-center justify-center rounded-xl bg-[#3730A3] px-4 text-sm font-semibold text-white transition hover:bg-[#2E2785] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
           >
             Enviar reporte
           </button>
           <button
             type="button"
             onClick={() => dialogRef.current?.close()}
-            className="flex min-h-12 w-full items-center justify-center rounded-xl border border-[#3B2DB2] bg-white px-4 text-sm font-semibold text-[#3B2DB2] transition hover:bg-[#EEF0FF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2]"
+            className="flex min-h-12 w-full items-center justify-center rounded-xl border border-[#3730A3] bg-white px-4 text-sm font-semibold text-[#3730A3] transition hover:bg-[#EEEDFC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]"
           >
             Cancelar
           </button>
         </div>
 
-        <p className="mt-3 text-xs text-slate-500">
+        <p className="mt-3 text-xs text-[#6B6A8A]">
           Un administrador lo revisará y te avisaremos del resultado.
         </p>
       </form>
