@@ -1,3 +1,4 @@
+import { AlertCircle, Check } from 'lucide-react';
 import type { GapItem, HabilidadCoincidente } from './data/types';
 
 interface GapSectionProps {
@@ -16,7 +17,11 @@ export function GapSection({
       <section aria-labelledby="heading-coincides">
         <h2
           id="heading-coincides"
-          className="text-base font-bold text-slate-900 sm:text-lg"
+          className="text-base font-bold text-[#12122B] sm:text-lg"
+          style={{
+            fontFamily:
+              'var(--font-talented-grotesk), "Space Grotesk", sans-serif',
+          }}
         >
           Por qué coincides
         </h2>
@@ -28,17 +33,16 @@ export function GapSection({
               className="rounded-xl border border-[#52B788] bg-[#EFFAF3] p-4"
             >
               <div className="flex items-start gap-2">
-                <span
+                <Check
                   aria-hidden="true"
-                  className="mt-0.5 text-sm font-bold text-emerald-800"
-                >
-                  ✓
-                </span>
-                <h3 className="text-sm font-bold text-slate-900">
+                  className="mt-0.5 h-4 w-4 shrink-0 text-[#15803D]"
+                  strokeWidth={2.5}
+                />
+                <h3 className="text-sm font-bold text-[#12122B]">
                   {hab.nombre}
                 </h3>
               </div>
-              <p className="mt-1.5 text-xs leading-relaxed text-slate-700">
+              <p className="mt-1.5 text-xs leading-relaxed text-[#4A4A68]">
                 {hab.evidencia}
               </p>
             </div>
@@ -50,7 +54,11 @@ export function GapSection({
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h2
             id="heading-falta"
-            className="text-base font-bold text-slate-900 sm:text-lg"
+            className="text-base font-bold text-[#12122B] sm:text-lg"
+            style={{
+              fontFamily:
+                'var(--font-talented-grotesk), "Space Grotesk", sans-serif',
+            }}
           >
             Lo que te falta
           </h2>
@@ -58,7 +66,7 @@ export function GapSection({
           <button
             type="button"
             onClick={onOpenReport}
-            className="inline-flex min-h-10 items-center justify-center rounded-full border border-[#3B2DB2] bg-white px-4 text-xs font-semibold text-[#3B2DB2] transition hover:bg-[#EEF0FF] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B2DB2] sm:text-sm"
+            className="inline-flex min-h-10 items-center justify-center rounded-full border border-[#3730A3] bg-white px-4 text-xs font-semibold text-[#3730A3] transition hover:bg-[#EEEDFC] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3] sm:text-sm"
           >
             <span className="sm:hidden">Reportar</span>
             <span className="hidden sm:inline">
@@ -67,7 +75,7 @@ export function GapSection({
           </button>
         </div>
 
-        <p className="mt-1 text-xs text-slate-600 sm:text-sm">
+        <p className="mt-1 text-xs text-[#4A4A68] sm:text-sm">
           La vacante lo pide, pero tu perfil aún no lo demuestra.
         </p>
 
@@ -81,23 +89,22 @@ export function GapSection({
               >
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex items-start gap-1.5">
-                    <span
+                    <AlertCircle
                       aria-hidden="true"
-                      className="text-sm font-bold text-amber-800"
-                    >
-                      !
-                    </span>
-                    <h3 className="text-sm font-bold text-slate-900">
+                      className="mt-0.5 h-4 w-4 shrink-0 text-[#B45309]"
+                      strokeWidth={2.2}
+                    />
+                    <h3 className="text-sm font-bold text-[#12122B]">
                       {gap.nombre}
                     </h3>
                   </div>
                   {isDisputado && (
-                    <span className="shrink-0 rounded-full bg-[#EEF0FF] px-2 py-0.5 text-[11px] font-semibold text-[#3B2DB2]">
+                    <span className="shrink-0 rounded-full bg-[#EEEDFC] px-2 py-0.5 text-[11px] font-semibold text-[#3730A3]">
                       En revisión
                     </span>
                   )}
                 </div>
-                <p className="mt-1.5 text-xs leading-relaxed text-slate-700">
+                <p className="mt-1.5 text-xs leading-relaxed text-[#4A4A68]">
                   {gap.motivo_vacante}
                 </p>
               </div>
