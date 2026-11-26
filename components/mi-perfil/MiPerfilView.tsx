@@ -14,7 +14,9 @@ import { CvDropzone } from "./CvDropzone";
 import { ArrowLeftIcon } from "./icons";
 import { PrivacySettingsCard } from "./PrivacySettingsCard";
 import { ProfileDataCards } from "./ProfileDataCards";
-import { Sidebar } from "./Sidebar";
+import { insignia } from "@/components/mis-insignias/data";
+import { ProfileBadge } from "@/components/mis-insignias/ProfileBadge";
+import { StudentSidebar } from "@/components/navigation/StudentSidebar";
 import { INITIAL_PROFILE, PrivacyFieldKey, StudentProfile } from "./types";
 
 export function MiPerfilView() {
@@ -106,11 +108,7 @@ export function MiPerfilView() {
 
   return (
     <div className="min-h-screen bg-[#F7F6FC] text-[#12122B] lg:flex">
-      <Sidebar
-        initials={profile.initials}
-        fullName={profile.fullName}
-        role={profile.role}
-      />
+      <StudentSidebar profile={profile} />
 
       <main className="flex-1 min-w-0">
         <div className="mx-auto max-w-[1040px] px-4 py-4 lg:px-7 lg:py-6">
@@ -264,6 +262,10 @@ export function MiPerfilView() {
                 onToggle={handleTogglePrivacy}
               />
             </div>
+          </div>
+
+          <div className="mt-4 empty:hidden">
+            <ProfileBadge insignia={insignia} />
           </div>
 
           {/* Mobile Save Footer (< lg) */}

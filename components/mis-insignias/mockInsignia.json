@@ -1,0 +1,16 @@
+{
+  "id": "insignia-typescript-basico",
+  "titulo": "Dominio básico de TypeScript",
+  "habilidad": {
+    "id": "hab-004",
+    "nombre": "TypeScript",
+    "siglas": "TS"
+  },
+  "emisor": "Talented",
+  "nivel": "básico",
+  "fechaObtencion": "2026-11-11",
+  "resultado": 88,
+  "resultadoMinimo": 80,
+  "visibilidad": "publica",
+  "vacanteId": "550e8400-e29b-41d4-a716-446655440001"
+}
