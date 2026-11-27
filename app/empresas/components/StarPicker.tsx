@@ -1,5 +1,6 @@
 "use client";
 
+import { Star } from "lucide-react";
 import { useState } from "react";
 
 type StarPickerProps = {
@@ -13,7 +14,7 @@ export default function StarPicker({ label, value, onChange }: StarPickerProps) 
 
   return (
     <div className="flex items-center justify-between gap-4">
-      <span className="text-sm text-zinc-800">{label}</span>
+      <span className="text-[15px] text-[#12122B]">{label}</span>
       <div className="flex items-center" onMouseLeave={() => setHover(0)}>
         {[1, 2, 3, 4, 5].map((star) => {
           const active = star <= (hover || value);
@@ -25,21 +26,17 @@ export default function StarPicker({ label, value, onChange }: StarPickerProps) 
               onClick={() => onChange(star)}
               onMouseEnter={() => setHover(star)}
               aria-label={`${label}: ${star} de 5 estrellas`}
-              className={`p-0.5 transition-colors ${
-                active
-                  ? "text-amber-500"
-                  : "text-zinc-300 hover:text-amber-400"
+              aria-pressed={star === value}
+              className={`grid size-11 place-items-center rounded-lg transition-colors focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#3730A3] ${
+                active ? "text-[#B45309]" : "text-[#8C8AA8] hover:text-[#B45309]"
               }`}
             >
-              <svg
-                width={20}
-                height={20}
-                viewBox="0 0 24 24"
-                fill="currentColor"
+              <Star
+                size={22}
+                fill={active ? "currentColor" : "none"}
+                strokeWidth={1.75}
                 aria-hidden="true"
-              >
-                <path d="M12 2.5l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.52l-5.88 3.09 1.12-6.55-4.76-4.64 6.58-.96L12 2.5z" />
-              </svg>
+              />
             </button>
           );
         })}

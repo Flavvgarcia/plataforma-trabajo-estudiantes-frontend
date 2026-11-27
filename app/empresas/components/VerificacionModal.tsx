@@ -1,7 +1,11 @@
 "use client";
 
+import { SquarePen, X } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+
+const focusRing =
+  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3730A3]";
 
 export default function VerificacionModal({
   empresaId,
@@ -16,37 +20,52 @@ export default function VerificacionModal({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="w-full rounded-xl bg-indigo-600 py-4 text-base font-semibold text-white transition-colors hover:bg-indigo-700"
+        className={`inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#3730A3] text-base font-bold text-white transition-colors hover:bg-[#2E2888] ${focusRing}`}
       >
+        <SquarePen size={18} aria-hidden="true" />
         Dejar reseña
       </button>
 
       {open && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#12122B]/40 p-4"
           role="presentation"
           onClick={() => setOpen(false)}
+          onKeyDown={(event) => {
+            if (event.key === "Escape") setOpen(false);
+          }}
         >
           <div
             role="dialog"
             aria-modal="true"
             aria-labelledby="verifica-titulo"
-            className="w-full max-w-md rounded-2xl border-2 border-indigo-600 bg-white p-6 shadow-xl"
+            className="w-full max-w-md rounded-2xl border-2 border-[#3730A3] bg-white p-6 shadow-xl"
             onClick={(event) => event.stopPropagation()}
           >
-            <h2
-              id="verifica-titulo"
-              className="text-xl font-bold text-zinc-900"
-            >
-              Modal: verifica tu proceso
-            </h2>
+            <div className="flex items-start justify-between gap-4">
+              <h2
+                id="verifica-titulo"
+                className="text-xl font-bold text-[#12122B] [font-family:var(--font-talented-grotesk),Arial,sans-serif]"
+              >
+                Verifica tu proceso
+              </h2>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label="Cerrar"
+                autoFocus
+                className={`-mt-2 -mr-2 grid size-11 shrink-0 place-items-center rounded-lg text-[#4A4A68] hover:bg-[#F7F6FC] ${focusRing}`}
+              >
+                <X size={20} aria-hidden="true" />
+              </button>
+            </div>
 
-            <label className="mt-6 flex cursor-pointer items-center gap-3 text-base text-zinc-800">
+            <label className="mt-4 flex min-h-11 cursor-pointer items-center gap-3 text-[15px] font-bold text-[#12122B]">
               <input
                 type="radio"
                 name="verificacion"
                 defaultChecked
-                className="h-5 w-5 accent-indigo-600"
+                className="size-5 accent-[#3730A3]"
               />
               Tuve entrevista
             </label>
@@ -57,7 +76,7 @@ export default function VerificacionModal({
                 setOpen(false);
                 router.push(`/empresas/${empresaId}/nueva`);
               }}
-              className="mt-6 w-full rounded-xl bg-indigo-600 py-3.5 text-base font-semibold text-white transition-colors hover:bg-indigo-700"
+              className={`mt-6 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-[#3730A3] text-base font-bold text-white transition-colors hover:bg-[#2E2888] ${focusRing}`}
             >
               Continuar
             </button>
