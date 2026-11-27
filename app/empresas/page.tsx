@@ -3,9 +3,11 @@ import EmpresaCard from "./components/EmpresaCard";
 
 export default function EmpresasPage() {
   return (
-    <div className="px-12 py-10">
-      <h1 className="text-3xl font-bold text-zinc-900">Empresas</h1>
-      <p className="mt-2 text-zinc-500">
+    <div className="px-4 py-8 sm:px-8 lg:px-12 lg:py-10">
+      <h1 className="text-3xl font-bold text-[#12122B] [font-family:var(--font-talented-grotesk),Arial,sans-serif]">
+        Empresas
+      </h1>
+      <p className="mt-2 text-[15px] text-[#4A4A68]">
         Consulta las reseñas de empresas y comparte tu experiencia.
       </p>
 
